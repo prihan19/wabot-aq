@@ -16,7 +16,7 @@ let rl = Readline.createInterface(process.stdin, process.stdout)
 let WAConnection = simple.WAConnection(_WAConnection)
 
 
-global.owner = ['6281515860089'] // Put your number here
+global.owner = ['6285855158728, 6281414035897'] // Put your number here
 global.mods = [] // Want some help?
 global.prems = [] // Premium user has unlimited limit
 global.APIs = { // API Prefix
@@ -85,12 +85,12 @@ conn.handler = async function (m) {
     try {
       let user
       if (user = global.DATABASE._data.users[m.sender]) {
-        if (!isNumber(user.exp)) user.exp = 0
-        if (!isNumber(user.limit)) user.limit = 10
+        if (!isNumber(user.exp)) user.exp = 9999
+        if (!isNumber(user.limit)) user.limit = 9999
         if (!isNumber(user.lastclaim)) user.lastclaim = 0
       } else global.DATABASE._data.users[m.sender] = {
-        exp: 0,
-        limit: 10,
+        exp: 9999,
+        limit: 9999,
         lastclaim: 0,
       }
       
@@ -114,7 +114,7 @@ conn.handler = async function (m) {
     if (!m.fromMe && opts['self']) return
     if (!m.text) return
     if (m.isBaileys) return
-    m.exp += 1
+    m.exp += 0
     
   	let usedPrefix
   	for (let name in global.plugins) {
